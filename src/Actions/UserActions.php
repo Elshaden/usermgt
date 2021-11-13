@@ -6,7 +6,6 @@ use Elshaden\LivewireUsermgt\Repositories\UserRepository;
 
 class UserActions
 {
-
     protected UserRepository $repository;
 
     public function __construct(UserRepository $repository)
@@ -14,9 +13,9 @@ class UserActions
         $this->repository = $repository;
     }
 
-    public function count(){
+    public function count()
+    {
         return $this->repository->all()->count() ;
     }
-
 }
                                                                  ;

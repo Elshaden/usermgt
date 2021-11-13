@@ -2,9 +2,9 @@
 
 namespace Elshaden\LivewireUsermgt\Tests;
 
+use Elshaden\LivewireUsermgt\LivewireUsermgtServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Elshaden\LivewireUsermgt\LivewireUsermgtServiceProvider;
 
 class TestCase extends Orchestra
 {

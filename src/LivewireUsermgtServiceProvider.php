@@ -9,7 +9,6 @@ use Elshaden\LivewireUsermgt\Repositories\UserRepository;
 use Elshaden\LivewireUsermgt\Repositories\UserRepositoryEloquent;
 use Illuminate\Support\Facades\Route;
 use Livewire\Livewire;
-use Prettus\Repository\Providers\RepositoryServiceProvider;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -34,10 +33,7 @@ class LivewireUsermgtServiceProvider extends PackageServiceProvider
     {
         Route::middleware(['web', 'auth'])->group(function () {
             Route::prefix(config('usermgt.route_prefix'))->group(function () {
-
                 Route::get('/list', UsersList::class);
-
-
             });
         });
         $this->app->bind(UserRepository::class, UserRepositoryEloquent::class);
@@ -50,7 +46,6 @@ class LivewireUsermgtServiceProvider extends PackageServiceProvider
 //       // $this->app->bind(DepartmentRepositoryInterface::class, DepartmentRepository::class);
 //        $this->app->bind(PermissionRepositoryInterface::class, PermissionRepository::class);
 //        $this->app->bind(RoleRepositoryInterface::class, RoleRepository::class);
-
     }
 
     public function bootingPackage()
@@ -61,11 +56,7 @@ class LivewireUsermgtServiceProvider extends PackageServiceProvider
 //            Livewire::component($component, $component_class);
 //
 //        }
-        Livewire::component('user-list',\Elshaden\LivewireUsermgt\Http\Livewire\UsersList::class);
-        Livewire::component('user-create',\Elshaden\LivewireUsermgt\Http\Livewire\UserCreate::class);
-
-
+        Livewire::component('user-list', \Elshaden\LivewireUsermgt\Http\Livewire\UsersList::class);
+        Livewire::component('user-create', \Elshaden\LivewireUsermgt\Http\Livewire\UserCreate::class);
     }
-
-
 }

@@ -7,7 +7,6 @@ namespace Elshaden\LivewireUsermgt\Http\Livewire;
 //use Elshaden\LivewireUsermgt\Respository\Contracts\UserRepositoryInterface;
 //use Elshaden\LivewireUsermgt\Respository\Eloquents\UserRepository;
 
-use Elshaden\LivewireUsermgt\Actions\UserActions;
 use Elshaden\LivewireUsermgt\Repositories\UserRepository;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -17,14 +16,12 @@ class UsersList extends Component
     use WithPagination;
 
     protected $Users = [];
-    protected $Count = Null;
+    protected $Count = null;
     public $SelectedUser = [];
     public $UserCreate = false;
 
-
     public function mount()
     {
-
     }
 
     public function paginationView()
@@ -36,13 +33,12 @@ class UsersList extends Component
     {
         $this->UserCreate = false;
         $this->SelectedUser = app(UserRepository::class)->find($UserId);
-
     }
+
     public function UserCreateNew($UserId)
     {
-        $this->SelectedUser = Null;
+        $this->SelectedUser = null;
         $this->UserCreate = true;
-
     }
 
     public function render()
@@ -50,6 +46,6 @@ class UsersList extends Component
         $this->Count = app(UserRepository::class)->all()->count();
         $this->Users = app(UserRepository::class)->with(['roles', 'permissions'])->orderBy('name', 'asc')->paginate(10);//  App\Models\User::with(['roles', 'permissions'])->orderBy('name', 'asc')->paginate(10);
 
-        return view('usermgt::user-list', ['Users' => $this->Users, 'Count'=>$this->Count]);
+        return view('usermgt::user-list', ['Users' => $this->Users, 'Count' => $this->Count]);
     }
 }

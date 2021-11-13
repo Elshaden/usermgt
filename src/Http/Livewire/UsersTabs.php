@@ -7,7 +7,6 @@ namespace Elshaden\LivewireUsermgt\Http\Livewire;
 //use Elshaden\LivewireUsermgt\Respository\Contracts\UserRepositoryInterface;
 //use Elshaden\LivewireUsermgt\Respository\Eloquents\UserRepository;
 
-use Elshaden\LivewireUsermgt\Actions\UserActions;
 use Elshaden\LivewireUsermgt\Repositories\UserRepository;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -15,20 +14,18 @@ use Livewire\WithPagination;
 class UsersTabs extends Component
 {
     use WithPagination;
-     protected $listeners = ['HasSelection']   ;
-     protected $UserId = Null;
+    protected $listeners = ['HasSelection']   ;
+    protected $UserId = null;
     public $SelectedUser = [];
     private UserRepository $user;
 
-
-
     public function mount($UserId)
     {
-      $this->UserId = $UserId;
-
+        $this->UserId = $UserId;
     }
 
-    public function HasSelection($UserId){
+    public function HasSelection($UserId)
+    {
         $this->UserId = $UserId;
         dd($UserId);
     }
@@ -36,6 +33,7 @@ class UsersTabs extends Component
     public function render()
     {
         $this->SelectedUser = app(UserRepository::class)->find($this->UserId);
+
         return view('usermgt::user-tabs');
     }
 }
