@@ -34,10 +34,16 @@ class UsersList extends Component
 
     public function SelectUser($UserId)
     {
+        $this->UserCreate = false;
         $this->SelectedUser = app(UserRepository::class)->find($UserId);
 
     }
+    public function UserCreateNew($UserId)
+    {
+        $this->SelectedUser = Null;
+        $this->UserCreate = true;
 
+    }
 
     public function render()
     {

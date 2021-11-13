@@ -20,7 +20,7 @@
                                 </p>
                             </div>
                             <div>
-                                <button wire:click.prevent="$set('UserCreate', true)"
+                                <button wire:click.prevent="UserCreateNew"
 
                                         type="button" class="inline-flex items-center px-2 py-0.5 border border-gray-400 shadow-sm text-xs leading-4 font-medium rounded-md text-gray-600 bg-transparent hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                                     Add New
@@ -48,6 +48,7 @@
                                            placeholder="Search">
                                 </div>
                             </div>
+                            @if(!$UserCreate)
                             <button type="submit"
                                     class="inline-flex justify-center px-3.5 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500">
                                 <!-- Heroicon name: solid/filter -->
@@ -59,6 +60,7 @@
                                 </svg>
                                 <span class="sr-only">Search</span>
                             </button>
+                                @endif
                         </form>
                     </div>
                     <!-- Directory list -->
@@ -124,7 +126,7 @@
                     </nav>
                 </aside>
                 @if($UserCreate)
-                    @livewire('usermgt::user-create')
+                    @livewire('user-create')
                 @endif
                 @if($SelectedUser)
                     @include('usermgt::user-tabs')

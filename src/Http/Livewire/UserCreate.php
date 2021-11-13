@@ -22,7 +22,7 @@ class UserCreate extends Component
 
 
 
-    public function mount($UserId)
+    public function mount()
     {
 
         $this->FormInputs = config('usermgt.user_profile');
