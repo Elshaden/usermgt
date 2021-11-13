@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Elshaden\LivewireUsermgt\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class LivewireUsermgtCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'livewire-usermgt';
 
     public $description = 'My command';
 
